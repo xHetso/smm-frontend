@@ -41,8 +41,9 @@ onUnmounted(() => {
 
 
 <template>
+    <!-- Carousel wrapper 
   <div id="default-carousel" class="relative w-full mt-10 container mx-auto" data-carousel="slide">
-    <!-- Carousel wrapper -->
+    
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
       <div v-for="(slide, index) in slides" :key="index"
            :class="['absolute block w-full duration-700 ease-in-out', { 'hidden': currentIndex !== index, 'translate-x-0': currentIndex === index }]"
@@ -51,7 +52,7 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- Slider indicators -->
+ 
     <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
       <button v-for="(slide, index) in slides" :key="index"
               type="button"
@@ -63,7 +64,7 @@ onUnmounted(() => {
       </button>
     </div>
 
-    <!-- Slider controls -->
+  
     <button type="button"
             class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             @click="prevSlide"
@@ -88,7 +89,7 @@ onUnmounted(() => {
     </button>
   </div>
 
-
+-->
     <div class="bg-[#7c14f3] container mx-auto mt-10 p-10">
         <h1 class="text-5xl font-semibold text-white text-center mb-10">Пайдаланушылардың парақшалары</h1>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
