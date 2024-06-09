@@ -3,10 +3,12 @@ import { roles } from './api/roles'
 import Layout from './components/Layout.vue'
 import Home from './screens/Home.vue'
 import AddPost from './screens/AddPost.vue' // Убедитесь, что путь правильный
+import AddPostViewFile from './screens/AddPostViewFile.vue'
 import About from './screens/About.vue'
 import Portfolio from './screens/Portfolio.vue'
 import Register from './screens/Register.vue'
 import Login from './screens/Login.vue'
+import AIAssistent from './screens/AIAssistent.vue'
 
 const routes = [
   {
@@ -33,6 +35,18 @@ const routes = [
         meta: { role: roles.user },
       },
       {
+        path: 'add-post-view-img',
+        name: 'Сурет арқылы генерациялау',
+        component: AddPostViewFile,
+        meta: { role: roles.user },
+      },
+      {
+        path: 'ai-assistant',
+        name: 'AI көмекші',
+        component: AIAssistent,
+        meta: { role: roles.user },
+      },
+      {
         path: 'portfolio',
         name: 'Портфолио',
         component: Portfolio,
@@ -49,8 +63,7 @@ const routes = [
         name: 'Register',
         component: Register,
         meta: { role: roles.user },
-      }
-    
+      },
     ],
   },
 ]

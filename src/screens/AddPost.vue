@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-200 p-4 w-1/2 mx-auto mt-10 rounded">
-    <h1 class="text-purple-900 text-4xl mb-4">Generate</h1>
+    <h1 class="text-purple-900 text-4xl mb-4">Пост генерациялау</h1>
     <form @submit.prevent="submitPost" class="flex flex-col space-y-2">
       <label for="title" class="text-purple-900 text-xl font-semibold">Телеграмдағы пост қандай болады?</label>
       <input type="text" id="title" v-model="title" class="rounded-lg px-3 py-2 text-black">
