@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: white;
+}
+*, p, h1, h2, h3 {
+  color: black;
+}
+
+.main-color{
+  color: #7414f3;
+}
