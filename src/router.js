@@ -9,6 +9,7 @@ import Portfolio from './screens/Portfolio.vue'
 import Register from './screens/Register.vue'
 import Login from './screens/Login.vue'
 import AIAssistent from './screens/AIAssistent.vue'
+import Table from './screens/Table.vue'
 
 const routes = [
   {
@@ -62,6 +63,18 @@ const routes = [
         path: 'register',
         name: 'Register',
         component: Register,
+        meta: { role: roles.user },
+      },
+      {
+        path: 'admin',
+        name: 'Admin',
+        component: Login,
+        meta: { role: roles.user },
+      },
+      {
+        path: 'table',
+        name: 'Table',
+        component: Table,
         meta: { role: roles.user },
       },
     ],
