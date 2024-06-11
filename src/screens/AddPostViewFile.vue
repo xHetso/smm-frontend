@@ -51,43 +51,44 @@
   };
   
   const submitPost = async () => {
-    if (requestCounter.value >= 7) {
-      showModal.value = true;
-      return;
-    }
-  
-    const postData = { title: title.value };
-  
-    console.log('Sending post data:', postData);
-  
-    try {
-      const response = await fetch('http://localhost:3000/submit-post', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postData)
-      });
-  
-      if (response.ok) {
-        console.log('Данные успешно отправлены на сервер');
-        const responseData = await response.json();
-        serverResponse.value = responseData.message; // Извлекаем сообщение
-        // Увеличиваем счетчик запросов
-        requestCounter.value++;
-        localStorage.setItem('requestCounter', requestCounter.value);
-        // Проверяем, достиг ли счетчик значения 7
-        if (requestCounter.value >= 7) {
-          showModal.value = true;
-        }
-      } else {
-        console.error('Ошибка при отправке данных на сервер');
+  if (requestCounter.value >= 7) {
+    showModal.value = true;
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('title', title.value);
+  if (selectedFile.value) {
+    formData.append('file', selectedFile.value);
+  }
+
+  console.log('Sending post data:', formData);
+
+  try {
+    const response = await fetch('http://localhost:3000/submit-post-view-img', {
+      method: 'POST',
+      body: formData
+    });
+    if (response.ok) {
+      console.log('Данные успешно отправлены на сервер');
+      const responseData = await response.json();
+      console.log('a', responseData); // Извлекаем сообщение
+      serverResponse.value = responseData.message;
+      // Увеличиваем счетчик запросов
+      requestCounter.value++;
+      localStorage.setItem('requestCounter', requestCounter.value);
+      // Проверяем, достиг ли счетчик значения 7
+      if (requestCounter.value >= 7) {
+        showModal.value = true;
       }
-    } catch (error) {
-      console.error('Ошибка при отправке данных:', error);
+    } else {
+      console.error('Ошибка при отправке данных на сервер');
     }
-  };
-  
+  } catch (error) {
+    console.error('Ошибка при отправке данных:', error);
+  }
+};
+
   const submitTelegramPost = async () => {
     if (requestCounter.value >= 7) {
       showModal.value = true;
